@@ -27,7 +27,6 @@ public class Mover extends Actor {
         this.camera = camera;
         hasCamera = true;
     }
-
     /**
      * Removes the camera if a camera has been set
      */
@@ -38,6 +37,19 @@ public class Mover extends Actor {
         }
     }
 
+    public boolean onGround()
+    {
+        Tile tile = (Tile)getOneObjectAtOffset(0, getImage().getHeight() / 2, Tile.class);
+        if(tile != null) {
+            if(tile.getIsSolid()) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
     /**
      * Apply change in position based on velocityX and velocityY
      */

@@ -28,7 +28,8 @@ public class Camera extends Actor {
      *
      * @param tileEngine TileEngine that is used to retrieve the tiles.
      */
-    public Camera(TileEngine tileEngine) {
+    public Camera(TileEngine tileEngine) 
+    {
         this.width = TileEngine.SCREEN_WIDTH;
         this.height = TileEngine.SCREEN_HEIGHT;
         this.setLocation(0, 0);
@@ -65,7 +66,8 @@ public class Camera extends Actor {
     }
 
     @Override
-    public void act() {
+    public void act() 
+    {
         dirX *= cameraDrag;
         dirY *= cameraDrag;
 
@@ -74,15 +76,18 @@ public class Camera extends Actor {
 
         // Als je in debug modus zit kan je met de "e" toets de camera los koppelen
         // ben besturen met de pijltjes toetsen.
-        if (CollisionEngine.DEBUG) {
+        if (CollisionEngine.DEBUG) 
+        {
             currentSwitchCameraDown = Greenfoot.isKeyDown("e");
-            if (currentSwitchCameraDown && !prevSwitchCameraDown) {
+            if (currentSwitchCameraDown && !prevSwitchCameraDown) 
+            {
                 follow = !follow;
             }
             prevSwitchCameraDown = currentSwitchCameraDown;
         }
 
-        if (follow) {
+        if (follow) 
+            {
             this.followActor.screenX = this.width / 2;
             this.followActor.screenY = this.height / 2;
 
